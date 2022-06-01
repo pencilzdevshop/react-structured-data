@@ -21,7 +21,15 @@ module.exports = {
         test: /\.(scss|sass|css)$/i,
         use: [
           MiniCssExtractPlugin.loader,
-          'css-loader?modules&importLoaders=1&camelCase&localIdentName=[local]&-autoprefixer!postcss-loader!sass-loader'
+          {
+            loader: "css-loader",
+            options: {
+              modules: true,
+              importLoaders: 2
+            }
+          },
+          "postcss-loader",
+          "sass-loader",
         ]
       }
     ]
